@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Team</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Create a Pokémon Team</h1>
+    <div class="nav-buttons">
+        <button onclick="location.href='index.html'">Home</button>
+        <button onclick="location.href='search.html'">Search Pokémon</button>
+        <button onclick="location.href='list.html'">List All Pokémon</button>
+    </div>
+    <input type="text" id="team-search-input" placeholder="Enter Pokémon name or ID">
+    <button onclick="searchAndAddPokemon()">Search and Add Pokémon</button>
+    <div id="team-container"></div>
+    <input type="text" id="team-name" placeholder="Enter team name">
+    <button id="save-team-button" onclick="saveTeam()" disabled>Save Team</button>
+    <h2>Saved Teams</h2>
+    <div id="saved-teams-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>
+
