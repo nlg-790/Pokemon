@@ -38,6 +38,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    const fetchForms = async (pokemon) => {
+        const forms = [];
+        try {
+            const speciesData = await fetch(pokemon.species.url).then(response => response.json());
+            for (const form of speciesData.varieties) {
+                if (!form.is_default) {
+                    const formData = await fetch(form.pokemon.url).then(response => response.json());
+                    forms.push(formData);
+                }
+            }
+        } catch (error) {
+            console.error('There was a problem fetching forms:', error);
+        }
+        return forms;
+    };
+
     const displayPokemon = (pokemon, container) => {
         const type = pokemon.types.map(typeInfo => typeInfo.type.name).join(', ');
 
@@ -63,6 +79,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 for (const pokemon of data.results) {
                     const pokemonData = await fetchPokemon(pokemon.url);
                     displayPokemon(pokemonData, pokemonList);
+
+                    // Fetch and display forms
+                    const forms = await fetchForms(pokemonData);
+                    forms.forEach(form => displayPokemon(form, pokemonList));
                 }
             } else {
                 console.error('No data results found');
