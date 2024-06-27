@@ -3,23 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create a Team</title>
+    <title>Pokémon Team Builder</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Create a Pokémon Team</h1>
-    <div class="nav-buttons">
-        <button onclick="location.href='index.html'">Home</button>
-        <button onclick="location.href='search.html'">Search Pokémon</button>
-        <button onclick="location.href='list.html'">List All Pokémon</button>
-    </div>
-    <input type="text" id="team-search-input" placeholder="Enter Pokémon name or ID">
-    <button onclick="searchAndAddPokemon()">Search and Add Pokémon</button>
-    <div id="team-container"></div>
-    <input type="text" id="team-name" placeholder="Enter team name">
-    <button id="save-team-button" onclick="saveTeam()" disabled>Save Team</button>
-    <h2>Saved Teams</h2>
-    <div id="saved-teams-container"></div>
+    <header>
+        <h1>Pokémon Team Builder</h1>
+        <nav class="nav-buttons">
+            <button onclick="window.location.href='index.html'">Home</button>
+            <button onclick="window.location.href='search.html'">Search Pokémon</button>
+            <button onclick="window.location.href='list.html'">List All Pokémon</button>
+            <button onclick="window.location.href='team.html'">Create a Team</button>
+        </nav>
+    </header>
+    <main>
+        <section id="search-section">
+            <input type="text" id="team-search-input" placeholder="Search Pokémon" onkeydown="if(event.key === 'Enter') searchAndAddPokemon()">
+            <button onclick="searchAndAddPokemon()">Search</button>
+            <div id="search-results"></div>
+        </section>
+        <section id="team-section">
+            <h2>Current Team</h2>
+            <div id="team-container"></div>
+            <form id="save-team-form" onsubmit="saveTeam(event)">
+                <input type="text" id="team-name" placeholder="Enter team name">
+                <button id="save-team-button" disabled>Save Team</button>
+            </form>
+        </section>
+        <section id="saved-teams-section">
+            <h2>Saved Teams</h2>
+            <div id="saved-teams-container"></div>
+        </section>
+    </main>
     <script src="team.js"></script>
 </body>
 </html>
