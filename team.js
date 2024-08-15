@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const teamNameInput = document.getElementById('team-name');
     const saveTeamForm = document.getElementById('save-team-form');
     let team = JSON.parse(localStorage.getItem('currentTeam')) || [];
+    const loggedIn = localStorage.getItem('loggedIn') === 'true';
 
     const specialForms = {
         "rattata": ["rattata-alola"],
@@ -304,6 +305,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const saveTeam = (event) => {
         event.preventDefault();
+        if (!loggedIn) {
+            alert('You must be logged in to save a team');
+            return;
+        }
         const teamName = teamNameInput.value;
         if (!teamName) {
             alert('Please enter a team name');
@@ -335,50 +340,40 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const searchPokemon = async () => {
-        const query = searchInput.value;
-        searchResults.innerHTML = '';
-        if (query === '') {
-            searchResults.innerHTML = '<p>Pokémon not found</p>';
-            return;
+        const query = searchInput.value.toLowerCase();
+        const url = `https://pokeapi.co/api/v2/pokemon/${query}`;
+        const urls = [url];
+        if (specialForms[query]) {
+            specialForms[query].forEach(form => {
+                urls.push(`https://pokeapi.co/api/v2/pokemon-form/${form}/`);
+            });
         }
 
-        // Fetching all Pokémon whose names start with the given letters
-        try {
-            const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10000');
-            const data = await response.json();
-            const matchedPokemon = data.results.filter(pokemon => pokemon.name.startsWith(query));
-            const urls = matchedPokemon.map(pokemon => pokemon.url);
-
-            // Include special forms if any
-            if (specialForms[query.toLowerCase()]) {
-                specialForms[query.toLowerCase()].forEach(form => {
-                    urls.push(`https://pokeapi.co/api/v2/pokemon-form/${form}/`);
-                });
-            }
-
-            for (const url of urls) {
+        searchResults.innerHTML = '';
+        for (const url of urls) {
+            try {
                 const pokemon = await fetchPokemon(url);
                 if (pokemon) {
                     displayPokemon(pokemon, searchResults);
                 }
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
             }
+        }
 
-            if (searchResults.innerHTML === '') {
-                searchResults.innerHTML = '<p>Pokémon not found</p>';
-            }
-        } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
+        if (searchResults.innerHTML === '') {
             searchResults.innerHTML = '<p>Pokémon not found</p>';
         }
     };
 
-    // Initialize the page
-    if (teamContainer) {
-        team.forEach(pokemon => displayPokemon(pokemon, teamContainer, true));
+    if (loggedIn) {
+        displaySavedTeams();
+    } else {
+        savedTeamsContainer.innerHTML = '<p>You must be logged in to see saved teams.</p>';
     }
 
-    if (savedTeamsContainer) {
-        displaySavedTeams();
+    if (teamContainer) {
+        team.forEach(pokemon => displayPokemon(pokemon, teamContainer, true));
     }
 
     saveTeamForm.addEventListener('submit', saveTeam);
