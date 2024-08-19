@@ -6,20 +6,29 @@ body {
     padding: 0;
 }
 
+body.index-page {
+    background: url('https://pbs.twimg.com/media/FqjoHVWaEAAHUlJ?format=jpg&name=small') no-repeat center center fixed;
+    background-size: cover;
+}
+
+
 header {
     padding: 20px;
-    background-color: #ffcc00;
-    border-bottom: 4px solid #ff3b30;
+    background-color: #003c71;
+    border-bottom: 4px solid #003c71;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 header h1 {
     font-size: 3em;
-    color: #333;
+    color: #ffc300;
     margin: 0;
-    text-shadow: 2px 2px #ff3b30;
+    -webkit-text-stroke: 2px #4484ce; 
+    -webkit-text-fill-color: #ffc300; 
 }
+
+
 
 #welcome-message {
     font-size: 1.5em;
@@ -139,18 +148,29 @@ button:not(.type-buttons button):hover {
 
 #signup-link {
     margin-top: 20px;
-    font-size: 1em;
-    text-align: center;
+    font-size: 1.2em;
+    color: #0077cc;
+    font-weight: bold;
+    padding: 5px 10px; 
+    border: 2px solid #ddd; 
+    border-radius: 10px;
+    background-color: white; 
+    display: inline-block; 
+    text-align: center; 
+    max-width: fit-content; 
 }
 
 #signup-link a {
-    color: #0077cc;
+    color: #ff3b30;
     text-decoration: none;
+    font-weight: bold;
 }
 
 #signup-link a:hover {
     text-decoration: underline;
+    color: #e62e24; 
 }
+
 
 footer {
     margin-top: 50px;
