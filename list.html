@@ -1,36 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List All Pokémon</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>All Pokémon</h1>
-        <nav class="nav-buttons">
-            <button onclick="window.location.href='index.html'">Home</button>
-            <button onclick="window.location.href='search.html'">Search Pokémon</button>
-            <button onclick="window.location.href='team.html'">Create a Team</button>
-            <button id="logout-button" style="display:none;">Logout</button>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Generations</h2>
-            <div id="generation-buttons" class="generation-buttons"></div>
-        </section>
-        <section>
-            <h2>Types</h2>
-            <div id="type-buttons" class="type-buttons"></div>
-        </section>
-        <div id="pokemon-list"></div>
-    </main>
-    <script src="list.js"></script>
-    <script src="login-check.js"></script>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,16 +23,31 @@
         </section>
         <section>
             <h2>Types</h2>
-            <div id="type-buttons" class="type-buttons"></div>
+            <div id="type-buttons" class="type-buttons">
+                <button class="type-water" onclick="loadPokemonByType('water')">Water</button>
+                <button class="type-fire" onclick="loadPokemonByType('fire')">Fire</button>
+                <button class="type-grass" onclick="loadPokemonByType('grass')">Grass</button>
+                <button class="type-electric" onclick="loadPokemonByType('electric')">Electric</button>
+                <button class="type-ice" onclick="loadPokemonByType('ice')">Ice</button>
+                <button class="type-fighting" onclick="loadPokemonByType('fighting')">Fighting</button>
+                <button class="type-poison" onclick="loadPokemonByType('poison')">Poison</button>
+                <button class="type-ground" onclick="loadPokemonByType('ground')">Ground</button>
+                <button class="type-flying" onclick="loadPokemonByType('flying')">Flying</button>
+                <button class="type-psychic" onclick="loadPokemonByType('psychic')">Psychic</button>
+                <button class="type-bug" onclick="loadPokemonByType('bug')">Bug</button>
+                <button class="type-rock" onclick="loadPokemonByType('rock')">Rock</button>
+                <button class="type-ghost" onclick="loadPokemonByType('ghost')">Ghost</button>
+                <button class="type-dragon" onclick="loadPokemonByType('dragon')">Dragon</button>
+                <button class="type-dark" onclick="loadPokemonByType('dark')">Dark</button>
+                <button class="type-steel" onclick="loadPokemonByType('steel')">Steel</button>
+                <button class="type-fairy" onclick="loadPokemonByType('fairy')">Fairy</button>
+            </div>
         </section>
-        <div id="selected-title" class="selected-title"></div> <!-- Added title div -->
+        <div id="selected-title" class="selected-title"></div>
         <div id="pokemon-list"></div>
     </main>
     <script src="list.js"></script>
     <script src="login-check.js"></script>
 </body>
 </html>
-
-
-
 
