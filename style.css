@@ -1,8 +1,9 @@
 body {
     font-family: 'Arial', sans-serif;
-    text-align: center;
     background: #74e4ce;
     color: #333;
+    margin: 0;
+    padding: 0;
 }
 
 header {
@@ -10,16 +11,18 @@ header {
     background-color: #ffcc00;
     border-bottom: 4px solid #ff3b30;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 header h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     color: #333;
     margin: 0;
+    text-shadow: 2px 2px #ff3b30;
 }
 
 #welcome-message {
-    font-size: 1.2em;
+    font-size: 1.5em;
     margin: 10px 0;
     color: #0077cc;
 }
@@ -30,15 +33,14 @@ header h1 {
     justify-content: center;
 }
 
-
 button:not(.type-buttons button) {
-    padding: 10px 20px;
-    margin: 5px;
+    padding: 15px 30px;
+    margin: 10px;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     background-color: #ff3b30;
     color: white;
-    font-size: 1.1em;
+    font-size: 1.2em;
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.3s ease;
 }
@@ -47,7 +49,6 @@ button:not(.type-buttons button):hover {
     background-color: #e62e24;
     transform: translateY(-3px);
 }
-
 
 #pokemon-list {
     display: flex;
@@ -75,13 +76,13 @@ button:not(.type-buttons button):hover {
 }
 
 .pokemon-card h2 {
-    font-size: 1.2em;
+    font-size: 1.5em;
     margin: 10px 0;
     color: #2a75bb;
 }
 
 .pokemon-card p {
-    font-size: 0.9em;
+    font-size: 1em;
     margin: 5px 0;
     color: #333;
 }
@@ -100,7 +101,6 @@ button:not(.type-buttons button):hover {
     background-color: #45a049;
 }
 
-
 #login-form {
     background-color: white;
     padding: 20px;
@@ -109,6 +109,7 @@ button:not(.type-buttons button):hover {
     display: inline-block;
     margin-top: 30px;
     text-align: left;
+    width: 300px;
 }
 
 #login-form label {
@@ -119,21 +120,27 @@ button:not(.type-buttons button):hover {
 
 #login-form input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 15px;
-    border-radius: 8px;
+    border-radius: 10px;
     border: 1px solid #ddd;
-    font-size: 1em;
+    font-size: 1.2em;
 }
 
 #login-form button {
     width: 100%;
     background-color: #0077cc;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 1.2em;
 }
 
 #signup-link {
     margin-top: 20px;
     font-size: 1em;
+    text-align: center;
 }
 
 #signup-link a {
@@ -145,15 +152,13 @@ button:not(.type-buttons button):hover {
     text-decoration: underline;
 }
 
-
 footer {
     margin-top: 50px;
     font-size: 0.9em;
     color: #555;
+    text-align: center;
 }
 
-
-/* Type Button Styles */
 .type-buttons button {
     padding: 10px 20px;
     margin: 5px;
@@ -164,15 +169,52 @@ footer {
     transition: opacity 0.3s ease, transform 0.2s ease;
 }
 
+.type-buttons button:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="search"] {
+    width: 70%;
+    max-width: 300px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 1.2em;
+    box-sizing: border-box;
+}
 
 
+button.search-button,
+button.save-team-button {
+    width: 25%;
+    max-width: 120px;
+    padding: 12px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #0077cc;
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
+button.search-button:hover,
+button.save-team-button:hover {
+    background-color: #005fa3;
+}
 
-
-
-
-
-
+.search-container,
+.save-team-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
 
 
 
