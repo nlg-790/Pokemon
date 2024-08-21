@@ -11,6 +11,17 @@ body.index-page {
     background-size: cover;
 }
 
+body.signup-page {
+    background: url('https://preview.redd.it/i-just-started-first-series-rewatch-and-i-actually-started-v0-qvqs6zwew4jb1.png?width=640&crop=smart&auto=webp&s=3f0cded8290cf0aad1c2654c6e97bb2f79862e51') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    flex-direction: column; 
+}
 
 header {
     padding: 20px;
@@ -18,6 +29,7 @@ header {
     border-bottom: 4px solid #003c71;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    width: 100%; 
 }
 
 header h1 {
@@ -27,8 +39,6 @@ header h1 {
     -webkit-text-stroke: 2px #4484ce; 
     -webkit-text-fill-color: #ffc300; 
 }
-
-
 
 #welcome-message {
     font-size: 1.5em;
@@ -110,7 +120,8 @@ button:not(.type-buttons button):hover {
     background-color: #45a049;
 }
 
-#login-form {
+#login-form,
+#signup-form {
     background-color: white;
     padding: 20px;
     border-radius: 15px;
@@ -121,13 +132,15 @@ button:not(.type-buttons button):hover {
     width: 300px;
 }
 
-#login-form label {
+#login-form label,
+#signup-form label {
     display: block;
     margin: 10px 0 5px;
     color: #333;
 }
 
-#login-form input {
+#login-form input,
+#signup-form input {
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
@@ -136,7 +149,8 @@ button:not(.type-buttons button):hover {
     font-size: 1.2em;
 }
 
-#login-form button {
+#login-form button,
+#signup-form button {
     width: 100%;
     background-color: #0077cc;
     padding: 12px;
@@ -147,17 +161,18 @@ button:not(.type-buttons button):hover {
 }
 
 #signup-link {
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 1.2em;
     color: #0077cc;
     font-weight: bold;
-    padding: 5px 10px; 
-    border: 2px solid #ddd; 
+    padding: 5px 10px;
+    border: 2px solid #ddd;
     border-radius: 10px;
-    background-color: white; 
-    display: inline-block; 
-    text-align: center; 
-    max-width: fit-content; 
+    background-color: white;
+    display: inline-block;
+    text-align: left;
+    max-width: fit-content;
+    width: auto;
 }
 
 #signup-link a {
@@ -168,8 +183,35 @@ button:not(.type-buttons button):hover {
 
 #signup-link a:hover {
     text-decoration: underline;
-    color: #e62e24; 
+    color: #e62e24;
 }
+
+#already-account {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #0077cc;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    display: block;
+    text-align: center;
+    max-width: fit-content;
+    margin: 0 auto;
+}
+
+#already-account a {
+    color: #ff3b30;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#already-account a:hover {
+    text-decoration: underline;
+    color: #e62e24;
+}
+
 
 
 footer {
@@ -207,7 +249,6 @@ input[type="search"] {
     box-sizing: border-box;
 }
 
-
 button.search-button,
 button.save-team-button {
     width: 25%;
@@ -234,6 +275,11 @@ button.save-team-button:hover {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+}
+
+p {
+    margin-block-start: 0;
+    margin-block-end: 0;
 }
 
 
