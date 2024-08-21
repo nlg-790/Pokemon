@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: 'Arial', sans-serif;
     background: #74e4ce;
     color: #333;
@@ -29,7 +29,8 @@ header {
     border-bottom: 4px solid #003c71;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 100%; 
+    width: 100%;
+    position: relative; 
 }
 
 header h1 {
@@ -41,10 +42,13 @@ header h1 {
 }
 
 #welcome-message {
-    font-size: 1.5em;
-    margin: 10px 0;
-    color: #0077cc;
+    font-size: 2.5em; 
+    color: #ffc300; 
+    -webkit-text-stroke: 1px #4484ce; 
+    margin: 20px 0;
+    text-align: center;
 }
+
 
 .nav-buttons {
     margin-top: 20px;
@@ -213,6 +217,291 @@ button:not(.type-buttons button):hover {
 }
 
 
+
+footer {
+    margin-top: 50px;
+    font-size: 0.9em;
+    color: #555;
+    text-align: center;
+}
+
+.type-buttons button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.type-buttons button:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="search"] {
+    width: 70%;
+    max-width: 300px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 1.2em;
+    box-sizing: border-box;
+}
+
+button.search-button,
+button.save-team-button {
+    width: 25%;
+    max-width: 120px;
+    padding: 12px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #0077cc;
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.search-button:hover,
+button.save-team-button:hover {
+    background-color: #005fa3;
+}
+
+.search-container,
+.save-team-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+} */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #74e4ce;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+body.index-page {
+    background: url('https://pbs.twimg.com/media/FqjoHVWaEAAHUlJ?format=jpg&name=small') no-repeat center center fixed;
+    background-size: cover;
+}
+
+body.signup-page {
+    background: url('https://preview.redd.it/i-just-started-first-series-rewatch-and-i-actually-started-v0-qvqs6zwew4jb1.png?width=640&crop=smart&auto=webp&s=3f0cded8290cf0aad1c2654c6e97bb2f79862e51') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-start;  /* Adjusted */
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    flex-direction: column; 
+}
+
+header {
+    padding: 20px;
+    background-color: #003c71;
+    border-bottom: 4px solid #003c71;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    position: relative; 
+}
+
+header h1 {
+    font-size: 3em;
+    color: #ffc300;
+    margin: 0;
+    -webkit-text-stroke: 2px #4484ce; 
+    -webkit-text-fill-color: #ffc300; 
+}
+
+#welcome-message {
+    font-size: 2.5em; 
+    color: #ffc300; 
+    -webkit-text-stroke: 1px #4484ce; 
+    margin: 20px 0;
+    text-align: center;
+}
+
+.nav-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+button:not(.type-buttons button) {
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 30px;
+    background-color: #ff3b30;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button:not(.type-buttons button):hover {
+    background-color: #e62e24;
+    transform: translateY(-3px);
+}
+
+#pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8ffae, #43c6ac);
+}
+
+.pokemon-card {
+    background-color: #FFDEAD;
+    border: 1px solid #8B4513;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    position: relative;
+}
+
+.pokemon-card img {
+    width: 100px;
+    height: 100px;
+}
+
+.pokemon-card h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #2a75bb;
+}
+
+.pokemon-card p {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #333;
+}
+
+.pokemon-card .add-to-team-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pokemon-card .add-to-team-button:hover {
+    background-color: #45a049;
+}
+
+#login-form,
+#signup-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    margin-top: 30px;
+    text-align: left;
+    width: 300px;
+}
+
+#login-form label,
+#signup-form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+#login-form input,
+#signup-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 1.2em;
+}
+
+#login-form button,
+#signup-form button {
+    width: 100%;
+    background-color: #0077cc;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+}
+
+#signup-link {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #0077cc;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    display: inline-block;
+    text-align: left;
+    max-width: fit-content;
+    width: auto;
+}
+
+#signup-link a {
+    color: #ff3b30;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#signup-link a:hover {
+    text-decoration: underline;
+    color: #e62e24;
+}
+
+#already-account {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #0077cc;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    display: block;
+    text-align: center;
+    max-width: fit-content;
+    margin: 0 auto;
+}
+
+#already-account a {
+    color: #ff3b30;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#already-account a:hover {
+    text-decoration: underline;
+    color: #e62e24;
+}
 
 footer {
     margin-top: 50px;
