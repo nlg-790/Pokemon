@@ -6,7 +6,7 @@
     <title>Search Pokémon</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class = "search-page">
     <header>
         <h1>Search for Pokémon</h1>
         <nav class="nav-buttons">
@@ -17,8 +17,10 @@
         </nav>
     </header>
     <main>
-        <input type="text" id="search-input" placeholder="Enter Pokémon name or ID" onkeydown="if(event.key === 'Enter') searchPokemon()">
-        <button onclick="searchPokemon()">Search Pokémon</button>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Enter Pokémon name or ID" onkeydown="if(event.key === 'Enter') searchPokemon()">
+            <button onclick="searchPokemon()">Search Pokémon</button>
+        </div>
         <div id="search-results"></div>
     </main>
     <script src="search.js"></script>
