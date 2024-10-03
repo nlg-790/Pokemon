@@ -29,6 +29,71 @@ body.search-page {
 }
 
 
+body.team-page {
+    position: relative;
+    background: url('https://fbi.cults3d.com/uploaders/12892269/illustration-file/b95c66d8-b4f9-4482-a58e-0cf7161da54e/Pok%C3%A9ball%20x6.PNG') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff; 
+}
+
+body.team-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+body.team-page * {
+    position: relative;
+    z-index: 2; 
+}
+
+body.list-page {
+    position: relative;
+    background: url('https://i.redd.it/tried-to-make-professor-oaks-lab-from-pok%C3%A9mon-swipe-for-v0-60395li9536a1.jpg?width=1920&format=pjpg&auto=webp&s=71249888d0e62084c3633ee5fdad246b17effee4') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff; 
+}
+
+body.list-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+body.list-page * {
+    position: relative;
+    z-index: 2; 
+}
+
+body.team-page::before, 
+body.list-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1; 
+}
+
+body.team-page * , 
+body.list-page * {
+    position: relative;
+    z-index: 2;
+}
+
+
 header {
     padding: 20px;
     background-color: #003c71;
@@ -92,7 +157,8 @@ button:not(.type-buttons button):hover {
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
-    background: linear-gradient(135deg, #f8ffae, #43c6ac);
+    background: none;
+    gap: 20px; 
 }
 
 .pokemon-group {
@@ -104,7 +170,7 @@ button:not(.type-buttons button):hover {
 }
 
 .pokemon-card {
-    background-color: #FFDEAD;
+    background-color: rgba(255, 255, 255, 0.9); 
     border: 1px solid #8B4513;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -342,6 +408,16 @@ p {
     margin-block-start: 0;
     margin-block-end: 0;
 }
+
+
+.pokeball-image {
+    display: block;
+    margin: 20px auto; 
+    max-width: 100%; 
+    width: 300px;
+    height: auto;
+}
+
 
 
 

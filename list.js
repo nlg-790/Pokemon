@@ -85,12 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await fetch(url).then(response => response.json());
             console.log('Fetched data:', data);
             if (data && data.results) {
-                pokemonList.innerHTML = '';  // Clear existing list
+                pokemonList.innerHTML = ''; 
                 for (const pokemon of data.results) {
                     const pokemonData = await fetchPokemon(pokemon.url);
                     displayPokemon(pokemonData, pokemonList);
 
-                    // Fetch and display forms
+                    
                     const forms = await fetchForms(pokemonData);
                     forms.forEach(form => displayPokemon(form, pokemonList));
                 }
@@ -112,12 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await fetch(url).then(response => response.json());
             console.log('Fetched data:', data);
             if (data && data.pokemon) {
-                pokemonList.innerHTML = '';  // Clear existing list
+                pokemonList.innerHTML = '';  
                 for (const { pokemon } of data.pokemon) {
                     const pokemonData = await fetchPokemon(pokemon.url);
                     displayPokemon(pokemonData, pokemonList);
 
-                    // Fetch and display forms
                     const forms = await fetchForms(pokemonData);
                     forms.forEach(form => displayPokemon(form, pokemonList));
                 }
@@ -129,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Initialize the page with generation and type buttons
+
     if (pokemonList) {
         const generationButtons = Object.keys(generations).map(gen => 
             `<button onclick="loadPokemonByGeneration(${gen})">${generations[gen].name}</button>`
