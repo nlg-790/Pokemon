@@ -15,7 +15,7 @@ body.signup-page {
     background: url('https://preview.redd.it/i-just-started-first-series-rewatch-and-i-actually-started-v0-qvqs6zwew4jb1.png?width=640&crop=smart&auto=webp&s=3f0cded8290cf0aad1c2654c6e97bb2f79862e51') no-repeat center center fixed;
     background-size: cover;
     display: flex;
-    justify-content: flex-start;  /* Adjusted */
+    justify-content: flex-start; 
     align-items: center;
     height: 100vh;
     margin: 0;
@@ -151,6 +151,14 @@ button:not(.type-buttons button):hover {
     padding: 20px;
 }
 
+#saved-teams-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 20px; 
+    margin: 20px 0; 
+}
+
 
 #pokemon-list {
     display: flex;
@@ -182,6 +190,9 @@ button:not(.type-buttons button):hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 1 1 200px; 
+    max-width: 200px;
+    transition: transform 0.2s ease;
 }
 
 .pokemon-card img {
