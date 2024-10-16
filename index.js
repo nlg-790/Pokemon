@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Example: If you need to handle button clicks to navigate to other pages
+    
     document.getElementById('to-search').addEventListener('click', () => {
         window.location.href = 'search.html';
     });
