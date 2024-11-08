@@ -1,22 +1,22 @@
 document.getElementById('login-form').addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const username = document.getElementById('username').value;
+    const username = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
 
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
 
-    const user = users.find(user => user.username === username && user.password === password);
+    const user = users.find(user => user.email === email && user.password === password);
 
     if (user) {
        
         localStorage.setItem('loggedIn', 'true');
-        localStorage.setItem('username', username);
+        localStorage.setItem('email', email);
         window.location.href = 'index.html';
     } else {
-        alert('Invalid username or password');
+        alert('Invalid email or password');
     }
 });
 
