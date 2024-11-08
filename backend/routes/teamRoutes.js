@@ -1,36 +1,34 @@
 // const express = require('express');
+// const bcrypt = require('bcryptjs');
 // const jwt = require('jsonwebtoken');
 // const User = require('../models/User');
 // const router = express.Router();
 
-// const authMiddleware = (req, res, next) => {
-//     const token = req.headers['authorization'];
-//     if (!token) return res.status(401).json({ message: 'Access denied' });
-
+// router.post('/register', async (req, res) => {
 //     try {
-//         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-//         req.userId = decoded.userId;
-//         next();
-//     } catch (error) {
-//         res.status(400).json({ message: 'Invalid token' });
-//     }
-// };
-
-// router.post('/save', authMiddleware, async (req, res) => {
-//     try {
-//         const user = await User.findById(req.userId);
-//         user.teams.push(req.body.team);
+//         const { email, password } = req.body;
+//         const hashedPassword = await bcrypt.hash(password, 10);
+//         const user = new User({ email, password: hashedPassword });
 //         await user.save();
-//         res.json({ message: 'Team saved successfully' });
+
+//         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+//         res.status(201).json({ token });
 //     } catch (error) {
 //         res.status(400).json({ error: error.message });
 //     }
 // });
 
-// router.get('/', authMiddleware, async (req, res) => {
+// router.post('/login', async (req, res) => {
 //     try {
-//         const user = await User.findById(req.userId);
-//         res.json(user.teams);
+//         const { email, password } = req.body;
+//         const user = await User.findOne({ email });
+//         if (!user) throw new Error('User not found');
+
+//         const isMatch = await bcrypt.compare(password, user.password);
+//         if (!isMatch) throw new Error('Incorrect password');
+
+//         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+//         res.json({ token });
 //     } catch (error) {
 //         res.status(400).json({ error: error.message });
 //     }
@@ -64,4 +62,6 @@ router.get('/', authMiddleware, async (req, res) => {
 });
 
 module.exports = router;
+
+
 
