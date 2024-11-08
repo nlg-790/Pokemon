@@ -1,23 +1,29 @@
-document.getElementById('signup-form').addEventListener('submit', (event) => {
+const signupForm = document.getElementById('signup-form');
+signupForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
-    const userExists = existingUsers.some(user => user.username === username);
+    try {
+        const response = await fetch('http://localhost:5000/api/users/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password }),
+        });
 
-    if (userExists) {
-        alert('Username already exists. Please choose a different username.');
-    } else {
+        const data = await response.json();
 
-        existingUsers.push({ username, password });
-        localStorage.setItem('users', JSON.stringify(existingUsers));
-        localStorage.setItem('loggedIn', 'true');
-        localStorage.setItem('username', username);
-
-        alert('User registered successfully! You are now logged in.');
-        window.location.href = 'index.html';
+        if (response.ok) {
+            alert('Registration successful! You can now log in.');
+            window.location.href = 'login.html';
+        } else {
+            alert(data.error);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred during registration. Please try again.');
     }
 });
+
 
