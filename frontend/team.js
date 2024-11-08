@@ -384,38 +384,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-//     if (loggedIn) {
-//         displaySavedTeams();
-//     } else {
-//         savedTeamsContainer.innerHTML = '<p>You must be logged in to see saved teams.</p>';
-//     }
 
-//     if (teamContainer && team.length) {
-//         team.forEach(pokemon => displayPokemon(pokemon, teamContainer, true));
-//     }
+    if (loggedIn) {
+        displaySavedTeams();
+    } else {
+        savedTeamsContainer.innerHTML = '<p>You must be logged in to see saved teams.</p>';
+    }
 
-//     saveTeamForm.addEventListener('submit', saveTeam);
-//     searchInput.addEventListener('keyup', (event) => {
-//         if (event.key === 'Enter') {
-//             searchPokemon();
-//         }
-//     });
+    if (teamContainer && team.length) {
+        team.forEach(pokemon => displayPokemon(pokemon, teamContainer, true));
+    }
 
-//     window.searchAndAddPokemon = searchPokemon;
-//     window.saveTeam = saveTeam;
+    saveTeamForm.addEventListener('submit', saveTeam);
+    searchInput.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+            searchPokemon();
+        }
+    });
+
+    window.searchAndAddPokemon = searchPokemon;
+    window.saveTeam = saveTeam;
 
     
-//     document.getElementById('logout-button').addEventListener('click', () => {
-//         clearTeamOnLogout();
-//         logout();
-//     });
-// });
+    document.getElementById('logout-button').addEventListener('click', () => {
+        clearTeamOnLogout();
+        logout();
+    });
+});
 
-// Replace this in team.js
-let team = JSON.parse(sessionStorage.getItem('currentTeam')) || [];
 
-// For saving current team
-sessionStorage.setItem('currentTeam', JSON.stringify(team));
-
-// For clearing the team on logout (or to reset it in other functions)
-sessionStorage.removeItem('currentTeam');
